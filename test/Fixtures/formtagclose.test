@@ -1,0 +1,12 @@
+--TEST--
+"form_closetag" function
+--TEMPLATE--
+{{ form_closetag( form1 ) }}
+--DATA--
+use Zend\Form\Form;
+
+return array(
+    'form1' => new Form(),
+)
+--EXPECT--
+</form>

@@ -1,0 +1,21 @@
+--TEST--
+"form_opentag" function
+--TEMPLATE--
+form1 {{ form_opentag( form1 ) }}
+form2 {{ form_opentag( form2 ) }}
+form3 {{ form_opentag( form3 ) }}
+form4 {{ form_opentag( form4 ) }}
+--DATA--
+use Zend\Form\Form;
+
+return array(
+    'form1' => new Form(),
+    'form2' => new Form( "myform" ),
+    'form3' => (new Form())->setAttributes( [ "class" => "nice-form" ] ),
+    'form4' => (new Form())->setAttributes( [ "method" => "get" ] ),
+)
+--EXPECT--
+form1 <form method="POST">
+form2 <form method="POST" name="myform">
+form3 <form method="POST" class="nice-form">
+form4 <form method="get">
