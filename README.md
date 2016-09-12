@@ -7,14 +7,16 @@ Twig extension to integrate zendframework/zend-form into twig templates
 Using the view helpers from ``zendframework/zend-view`` in your ZendFramework2 project:
 
 ```php
-<?php echo $this->form()->openTag( $this->myform ); ?>
-...
-<?php echo $this->form()->closeTag();
+echo $this->form()->openTag( $this->myform );
+
+//...
+
+echo $this->form()->closeTag();
 ```
 
 Using this twig extension:
 
-```twig
+```Twig
 {{ form_opentag( myform ) }}
 ...
 {{ form_closetag( myform ) }}
