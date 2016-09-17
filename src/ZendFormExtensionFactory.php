@@ -5,9 +5,14 @@ namespace Stubbetje\Twig\ZendForm;
 use Interop\Container\ContainerInterface;
 use Zend\Escaper\Escaper;
 
-class TwigExtensionFactory
+class ZendFormExtensionFactory
 {
-	public function __invoke( ContainerInterface $container ) : TwigExtension
+	/**
+	 * @param ContainerInterface $container
+	 *
+	 * @return ZendFormExtension
+	 */
+	public function __invoke( ContainerInterface $container )
 	{
 		if( ! $container->has( Escaper::class ) ) {
 			$escaper = new Escaper;
@@ -15,6 +20,6 @@ class TwigExtensionFactory
 			$escaper = $container->get( Escaper::class );
 		}
 
-		return new TwigExtension( $escaper );
+		return new ZendFormExtension( $escaper );
 	}
 }
